@@ -1,0 +1,70 @@
+{% args device_id, flag %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Home Page</title>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			var currentPath = window.location.pathname;
+			var links = document.querySelectorAll('.nav-link');
+
+			links.forEach(function(link) {
+				if (link.getAttribute('href') === currentPath) {
+					link.classList.add('active');
+				}
+			});
+		});
+	</script>
+
+<body>
+	<div class="header" id="logo">
+		<img src="static/duckLogo.png" height=80 alt="Duck Logo">
+		<p class="deviceId">{{ device_id }}</p>
+	</div>
+	<div class="topnav" id="myTopnav">
+		<a href="/" class="active"> Home</a>
+		<a href="/flags">Flags</a>
+		<a href="/comms">Comms</a>
+		<a href="/respond">Respond</a>
+		<a href="/credits">Credits</a>
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+			<img src="static/menu.png" height=23>
+		</a>
+	</div>
+	<div class="content">
+		<section>
+			<h2>Introduction</h2>
+			<p>Welcome to BSides Kristiansand's Badge Hacking Fun!</p>
+		</section>
+		<section>
+			<h2>Capture The Flag (CTF) Event</h2>
+			<p>Our CTF event challenges you to uncover hidden flags throughout the badge.</p>
+			<p>Each flag represents a unique challenge or puzzle for you to solve.</p>
+			<p>Collect as many flags as you can and earn points!</p>
+		</section>
+		<section>
+			<h2>Flags Page</h2>
+			<p>Visit the <a href="/flags">Flags Page</a> to upload the flags you've captured.</p>
+			<p>Here is an easy one to get you started: BSIDES_KRS_12345</p>
+		</section>
+		<section>
+			<h2>Fun Facts</h2>
+			<p>Did you know? Ducks have waterproof feathers that keep them dry even when diving underwater!</p>
+			<p>Ducks can sleep with one eye open, keeping half their brain awake to watch for predators.</p>
+			<p>Some duck species migrate thousands of kilometers every year, navigating with remarkable precision.</p>
+		</section>
+	</div>
+	<script>
+	function myFunction() {
+		var x = document.getElementById("myTopnav");
+		if (x.className === "topnav") {
+			x.className += " responsive";
+		} else {
+			x.className = "topnav";
+		}
+	}
+	</script>
+</body>
+</html>
