@@ -63,7 +63,7 @@ class FlagManager:
         self.db = TinyDB(dbName)
         self.table = self.db.table('flags')
         for index, flag in enumerate(flags_data):
-            flag_data = self.to_leet(f"{flag}_{index}".upper().replace("-", ""))
+            flag_data = self.to_leet(f"{flag}_{index+1}".upper().replace("-", ""))
             if( flag == 'credits' ):
                 flag_value = f"DUCK_{flag_data}_01234"
             elif( flag == 'firmware' ):
@@ -71,8 +71,9 @@ class FlagManager:
             elif( flag == 'easy' ):
                 flag_value = f"DUCK_{flag_data}_4612"
             else:
-                suffix = self.last_5_characters_of_hash(f"DUCK_{self.device_name}_{flag_data}")
-                flag_value = f"DUCK_{self.device_name}_{flag_data}_{suffix}"
+                device_id = self.device_name.replace("DUCK", "")
+                suffix = self.last_5_characters_of_hash(f"DUCK_{device_id}_{flag_data}")
+                flag_value = f"DUCK_{device_id}_{flag_data}_{suffix}"
             encrypted_data = self.encrypt(flag_value)
             search_result = self.table.search(Query().flag == flag)
             if not search_result:

@@ -21,20 +21,13 @@ class Helpers:
     
         # Calculate the hash of the unique ID using uhashlib
         unique_id_hash = uhashlib.sha256(unique_id_bytes).digest()
-        # #print the last 4 bytes of the hash
-        # print(ubinascii.hexlify(unique_id_hash[-3:]))
-        # # Calculate the five-digit number
-        # four_digit_number = sum(unique_id_hash) & 10000
-        
-        
-        # # Pad the number with leading zeros to ensure it's five digits
-        # device_number_str = self.pad_with_zeros(four_digit_number, 4)
 
         # Convert to a formatted device name
-        self.device_name = 'DUCK-' + ubinascii.hexlify(unique_id_hash[-3:]).decode()
+        self.device_name = 'DUCK-' + ubinascii.hexlify(unique_id_hash[-3:]).decode().upper()
 
         print('Device Name:', self.device_name)
 
-    def generate_password(self, length=4):
-        """Generates a random password consisting of a 4-digit number."""
-        return ''.join(str(random.randint(0, 9)) for _ in range(length))
+    def generate_password(self, device_id):
+        hash_bytes = uhashlib.sha256(device_id.encode()).digest()
+        num = int.from_bytes(hash_bytes[:4], 'big') % 100_000_000
+        return f"{num:08}"

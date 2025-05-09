@@ -7,7 +7,6 @@ LED_ENABLE_PIN = 22
 LED_COUNT = 9
 LED_BOOT_TIME_S = 7
 LED_FRAME_RATE = 60
-LED_SIREN_DELAY = 0.25
 LED_MAX_INTENSITY = 0.25
 LED_COLORS = {
     'OFF':      [  0,   0,   0],
@@ -24,8 +23,11 @@ LED_COLORS = {
     'CYAN':     [  0, 255, 140],
     'LIGHTBLUE':[  0, 140, 255],
     'PURPLE':   [115,   0, 255],
-    'MAGENTA':  [220,   0, 255]
+    'MAGENTA':  [220,   0, 255],
+    'VIOLET':    [148,   0, 211],
+    'INDIGO':    [ 75,   0, 130]    
 }
+MAX_BRIGHTNESS = 0.25  # Range from 0.0 (off) to 1.0 (full brightness)
 
 # SCAN 
 SCAN_COUNT = 3

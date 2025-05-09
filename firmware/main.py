@@ -10,7 +10,6 @@ from serialManager import SerialManager
 from networkManager import NetworkManager
 from configManager import ConfigManager
 from ledManager import LEDManager
-from detectManager import DetectManager
 import utime as time
 # import _thread
 import constants
@@ -19,36 +18,34 @@ import _asyncio as asyncio
 #Loading badge Configuration
 helpers = Helpers()
 device_id = helpers.device_name
-networkSetting = 'WIFI'
-bootupTime = time.ticks_ms()
+networkSetting = 'AP'
 
 configManager = ConfigManager()
-password = helpers.generate_password(4)
-print(f"Generating Random password: {password}")
+password = helpers.generate_password(device_id)
+print(f"AP Password: {password}")
+
+print("Starting LED Manager")
+flagManager = FlagManager(device_id)
+flagStatus = flagManager.get_flags_status()
+print(f"Flag Status: {flagStatus}")
+ledManager = LEDManager(configManager.configData['startupColor'])
+ledManager.boot(flagStatus)
+print(f"Blinking Morse {password}")
+ledManager.blink_morse(password)
+
 # Generate random psk and store in database
 if configManager.configData['apPassword'] == 'password':
 	configManager.update_config('apPassword', password)
 
-ledManager = LEDManager(configManager.configData['startupColor'])
-ledManager.boot()
-time.sleep(1)
-ledManager.blink_morse(password)
-
-#testmode = False
-# print("Battery Voltage", detectManager.read_v_batt())
-# print("USB Voltage", detectManager.read_v_usb())
-# print("Starting Up Sensor Manager")
 gc.collect()
 
-# Removed bootPin functionality
-
-flagManager = FlagManager(device_id)
+print("Starting Network Manager with Password: ", repr(configManager.configData['apPassword']))
 networkManager = NetworkManager(device_id, configManager.configData['apPassword'], networkSetting) 
 scanManager = ScanManager(networkManager.wlan, flagManager)
 serialManager = SerialManager()
+
 app = Microdot()
 Response.default_content_type = 'text/html'
-ledManager.blink_morse(116)
 gc.collect()
 
 # Page Routes
@@ -143,7 +140,7 @@ async def captureFlag(request, flag):
 	if( True == flag_captured ):
 		flagManager.set_flag_status( flag.lower(), True )
 		#screenManager.updateFlagCount(flagManager.get_captured_flag_count())
-		ledManager.boot()
+		ledManager.party_blink()
 	response_data = json.dumps({'captured': flag_captured})
 
 	return response_data
