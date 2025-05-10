@@ -105,14 +105,14 @@ class LEDManager:
         """Quickly switches to high intensity on the eyes."""
         eye_color = self.apply_brightness(constants.LED_COLORS['WHITE'])
 
-        for led in self.jacket:
-            self.strand[led - 1] = self.apply_brightness(constants.LED_COLORS['OFF'])
+        #for led in self.jacket:
+        #    self.strand[led - 1] = self.apply_brightness(constants.LED_COLORS['OFF'])
 
         for led in self.eyes:
             self.strand[led - 1] = eye_color
 
         self.strand.write()
-        time.sleep(3)
+        time.sleep(2)
 
     def interpolate_color(self, start_color, end_color, steps):
         """Linearly interpolate between two RGB colors."""
@@ -125,15 +125,15 @@ class LEDManager:
             for i in range(steps + 1)
         ]
 
-    def wink(self):
+    def wink(self, dwell=2):
         """Smoothly winks one eye (fades out then in)."""
         eye_color = constants.LED_COLORS['WHITE']
         off_color = constants.LED_COLORS['OFF']
         steps = 10
         delay = 0.03
 
-        for led in self.jacket:
-            self.strand[led - 1] = self.apply_brightness(off_color)
+        #for led in self.jacket:
+        #    self.strand[led - 1] = self.apply_brightness(off_color)
 
         for led in self.eyes:
             self.strand[led - 1] = self.apply_brightness(eye_color)
@@ -152,6 +152,7 @@ class LEDManager:
             self.strand[wink_led - 1] = self.apply_brightness(color)
             self.strand.write()
             time.sleep(delay)
+        time.sleep(dwell)
 
     def party_blink(self, duration=3, interval=0.1):
         """Randomly blinks all LEDs with bright colors for a fun effect."""
@@ -173,9 +174,9 @@ class LEDManager:
             self.strand[led - 1] = self.apply_brightness(constants.LED_COLORS['OFF'])
         self.strand.write()
 
-    def boot(self, flagDict=None):
+    def boot(self, flagDict=None, dwell=constants.LED_BOOT_TIME_S):
         """Runs the full LED sequence."""
         self.fade_in_jacket(flagDict)
         self.switch_to_eyes()
-        self.wink()
+        self.wink(dwell)
         self.turn_off_leds()

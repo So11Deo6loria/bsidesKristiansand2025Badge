@@ -37,14 +37,11 @@
 		<p class="deviceId">{{ device_id }}</p>
 	</div>
 	<div class="topnav" id="myTopnav">
-		<a href="/comms" class="active">Comms</a>
 		<a href="/"> Home</a>
 		<a href="/flags">Flags</a>
+		<a href="/comms" class="active">Comms</a>
 		<a href="/respond">Respond</a>
 		<a href="/credits">Credits</a>
-		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
-			<img src="static/menu.png" height=23>
-		</a>
 	</div>
 	<div class="content">
 		<p></p>
@@ -54,15 +51,5 @@
 	<div class="fun-fact">
 		<strong>Did You Know?</strong> <em>Ducks have regional accents! Studies have shown that ducks raised in urban environments tend to quack louder and with a slightly different cadence than those in rural areas—much like humans developing different accents or dialects based on where they live. This helps them communicate more effectively in their noisy surroundings.</em>
 	</div> 
-	<script>
-		function myFunction() {
-			var x = document.getElementById("myTopnav");
-			if (x.className === "topnav") {
-				x.className += " responsive";
-			} else {
-				x.className = "topnav";
-			}
-		}
-	</script>
 </body>
 </html>

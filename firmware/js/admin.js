@@ -4,6 +4,7 @@ function loadConfig() {
         .then(config => {
             document.getElementById('startupColor').value = config.startupColor;
             document.getElementById('apPassword').value = config.apPassword;
+            document.getElementById('bootTime').value = config.bootTime;
             document.getElementById('version').value = config.version;
         })
         .catch(error => console.error('Error loading config:', error));
@@ -13,6 +14,7 @@ function saveConfig() {
     const config = {
         startupColor: document.getElementById('startupColor').value,
         apPassword: document.getElementById('apPassword').value,
+        bootTime: document.getElementById('bootTime').value,
         version: document.getElementById('version').value,
     };
 

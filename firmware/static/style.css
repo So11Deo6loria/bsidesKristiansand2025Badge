@@ -59,12 +59,6 @@ h1 {
     text-shadow: 0 0 15px #ffcc00;
 }
 
-.logos img {
-    width: 400px;
-    margin: 10px;
-    filter: drop-shadow(0 0 10px #00aaff);
-}
-
 button {
     background-color: #ff007f;
     color: #fff;
@@ -82,4 +76,162 @@ button:hover {
 
 #startButton.active {
     background-color: #ff0000;
+}
+
+.content {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.fun-fact {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.flag-entry {
+    display: grid;
+    grid-template-columns: 180px 50% 120px 150px;
+    align-items: center;
+    gap: 15px;
+    margin: 12px 20px;
+    padding: 10px 0;
+}
+
+.flag-entry h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #fff;
+}
+
+.flag-input input {
+    width: 80%;
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #000;
+}
+
+.flag-input button {
+    padding: 10px 18px;
+    font-size: 16px;
+    background-color: #ff007f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #ff007f;
+    cursor: pointer;
+}
+
+.flag-input button:hover {
+    background-color: #ffcc00;
+    box-shadow: 0 0 15px #ffcc00;
+}
+
+.flag-indicator p {
+    font-weight: bold;
+    margin: 0;
+    font-size: 16px;
+    min-width: 100px;
+    color: red; /* default, JS changes it to green if captured */
+}
+
+#configForm {
+    padding: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+#configForm label {
+    font-weight: bold;
+    color: #fff;
+}
+
+#configForm input {
+    padding: 6px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+    background-color: #fff;
+    color: #000;
+}
+
+/* Logos section */
+.logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 40px 0;
+}
+
+.logos a img:hover {
+    transform: scale(1.1);
+}
+
+.logos img[alt="BSides Logo"] {
+    width: 480px;
+    max-height: 380px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px #00aaff);
+}
+
+.logos img[alt="SolaSec Logo"] {
+    width: 400px;
+    max-height: 300px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px #00aaff);
+}
+
+/* Contributors section */
+.contributors .credits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.contributors li {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.credit-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+.credit-info h3 {
+    margin: 0;
+    font-size: 22px;
+    color: #fff;
+}
+
+/* Social icons */
+.social-links a img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 5px #00aaff);
+    transition: transform 0.2s ease;
+}
+
+.social-links a img:hover {
+    transform: scale(1.1);
 }

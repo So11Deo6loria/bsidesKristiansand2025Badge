@@ -14,14 +14,11 @@
 		<p class="deviceId">{{ device_id }}</p>
 	</div>
 	<div class="topnav" id="myTopnav">
-		<a href="/respond" class="active">Respond</a>
 		<a href="/">Home</a>
 		<a href="/flags">Flags</a>
 		<a href="/comms">Comms</a>
+		<a href="/respond" class="active">Respond</a>
 		<a href="/credits">Credits</a>
-		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
-			<img src="static/menu.png" height=23>
-		</a>
 	</div>
 	<div class="content">
 		<p></p>
@@ -31,15 +28,5 @@
 	<div class="fun-fact">
 		<strong>Did You Know?</strong> <em>Ducks are highly responsive to each other’s calls—especially in groups. When one duck emits a contact call, nearby ducks often respond in kind, helping the group stay together and coordinate movement. This vocal back-and-forth is crucial for maintaining flock cohesion, particularly in flight or during foraging.</em>
 	</div>
-	<script>
-		function myFunction() {
-			var x = document.getElementById("myTopnav");
-			if (x.className === "topnav") {
-				x.className += " responsive";
-			} else {
-				x.className = "topnav";
-			}
-		}
-	</script>
 </body>
 </html>

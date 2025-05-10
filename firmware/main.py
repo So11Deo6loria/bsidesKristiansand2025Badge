@@ -22,24 +22,24 @@ networkSetting = 'AP'
 
 configManager = ConfigManager()
 password = helpers.generate_password(device_id)
-print(f"AP Password: {password}")
 
 print("Starting LED Manager")
 flagManager = FlagManager(device_id)
 flagStatus = flagManager.get_flags_status()
 print(f"Flag Status: {flagStatus}")
 ledManager = LEDManager(configManager.configData['startupColor'])
-ledManager.boot(flagStatus)
-print(f"Blinking Morse {password}")
-ledManager.blink_morse(password)
+ledManager.boot(flagStatus, configManager.configData['bootTime'])
 
 # Generate random psk and store in database
 if configManager.configData['apPassword'] == 'password':
 	configManager.update_config('apPassword', password)
 
+if configManager.configData['apPassword'] == password:
+	print(f"Blinking Morse {password}")
+	ledManager.blink_morse(password)
+
 gc.collect()
 
-print("Starting Network Manager with Password: ", repr(configManager.configData['apPassword']))
 networkManager = NetworkManager(device_id, configManager.configData['apPassword'], networkSetting) 
 scanManager = ScanManager(networkManager.wlan, flagManager)
 serialManager = SerialManager()
@@ -143,6 +143,9 @@ async def captureFlag(request, flag):
 		ledManager.party_blink()
 	response_data = json.dumps({'captured': flag_captured})
 
+	if( flagManager.get_captured_flag_count() == constants.TOTAL_FLAGS ):
+		ledManager.party_blink(duration=10)
+		configManager.update_config('bootTime', 15)
 	return response_data
 
 # Static Routes

@@ -1,5 +1,5 @@
 # Make sure you don't put sensitive information in comments like this...
-# STRING_FLAG = 'DUCKS_FIRMW4R3_5_56789'
+# STRING_FLAG = 'DUCK_FIRMW4R3_4_56789'
 
 # LEDS
 LED_PIN = 16
@@ -28,6 +28,7 @@ LED_COLORS = {
     'INDIGO':    [ 75,   0, 130]    
 }
 MAX_BRIGHTNESS = 0.25  # Range from 0.0 (off) to 1.0 (full brightness)
+LED_BOOT_TIME_S = 7
 
 # SCAN 
 SCAN_COUNT = 3
@@ -35,7 +36,7 @@ SCAN_COUNT = 3
 # SERIAL
 SERIAL_TX_PIN = 12
 SERIAL_RX_PIN = 13
-BAUD_RATE = 115200
+BAUD_RATE = 38400
 UART_INSTANCE = 0
 COMMS_TRANSMISSION_COUNT = 5
 
@@ -45,3 +46,6 @@ V_USB_DETECT_PIN = 28
 
 # INTERRUPT
 INTERRUPT_PIN = 1
+
+# FLAGS
+TOTAL_FLAGS = 7

@@ -25,16 +25,14 @@
 		<p class="deviceId">{{ device_id }}</p>
 	</div>
 	<div class="topnav" id="myTopnav">
-		<a href="/admin" class="activeAdmin">Admin</a>
 		<a href="/"> Home</a>
+		<a href="/admin" class="activeAdmin">Admin</a>
 		<a href="/flags">Flags</a>
 		<a href="/comms">Comms</a>
 		<a href="/respond">Respond</a>
 		<a href="/credits">Credits</a>
-		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
-			<img src="static/menu.png" height=23>
-		</a>
 	</div>
+	<p></p>
 	<form id="configForm">
 		<label for="startupColor">Startup LED Color:</label>
 		<input type="text" id="startupColor" name="startupColor"><br><br>
@@ -42,20 +40,37 @@
 		<label for="apPassword">AP Password:</label>
 		<input type="text" id="apPassword" name="apPassword"><br><br>
 
+		<label for="bootTime">Boot Time (s):</label>
+		<input type="text" id="bootTime" name="bootTime"><br><br>		
+
 		<button type="button" onclick="saveConfig()">Save Configuration</button>
 	</form>
 	<div class="fun-fact">
-		<strong>Did You Know?</strong> <em>Modern ambulances are equipped with advanced telematics systems that require administrative-level access to configure. These systems can include cybersecurity protections to prevent unauthorized access, ensuring that sensitive data such as patient records and operational protocols are securely managed.</em>
+		<h2>Welcome to the Duck Control Panel</h2>
+		<p>
+		  Your centralized dashboard for overseeing all things quack-related. Whether you're monitoring pond activity,
+		  managing feeding schedules, or reviewing the latest waddling analytics, this is your command center for duck operations.
+		</p>
+	  
+		<p>
+		  From hatchling setup to full-flight readiness, the Duck Control Panel gives you streamlined access to essential configuration parameters.
+		  Tailor your duck system’s startup behavior to suit your flock’s needs:
+		</p>
+	  
+		<ul>
+		  <li>
+			<strong>Startup Color</strong> – Choose the initial LED hue to reflect your preferred mood or flock identity.
+			Whether it's classic mallard green or alert-mode amber, your ducks boot up in style.
+		  </li>
+		  <li>
+			<strong>Access Point Password</strong> – Secure your flock's wireless access with a configurable WPA2 passphrase.
+			Keep unauthorized beavers and squirrels off your network.
+		  </li>
+		  <li>
+			<strong>Startup Duration</strong> – Define how long the pre-quack initialization sequence lasts before full pond readiness.
+			Useful for sequencing coordinated waddles or synchronized splashes.
+		  </li>
+		</ul>
 	</div>    
-	<script>
-		function myFunction() {
-			var x = document.getElementById("myTopnav");
-			if (x.className === "topnav") {
-				x.className += " responsive";
-			} else {
-				x.className = "topnav";
-			}
-		}
-	</script>
 </body>
 </html>
