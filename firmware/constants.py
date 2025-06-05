@@ -30,6 +30,42 @@ LED_COLORS = {
 MAX_BRIGHTNESS = 0.25  # Range from 0.0 (off) to 1.0 (full brightness)
 LED_BOOT_TIME_S = 7
 
+CALEB_LED_BOOT = [
+    [255, 0, 0],   # RED
+    [255, 0, 0],   # RED
+    [255, 255, 255], # WHITE
+    [255, 255, 255], # WHITE    
+    [255, 255, 255], # WHITE    
+    [255, 255, 255], # WHITE    
+    [255, 255, 255], # WHITE    
+    [255, 255, 255], # WHITE    
+    [255, 255, 255] # WHITE        
+]
+
+KYLE_LED_BOOT = [
+    [0, 45, 98],    # BLUE
+    [255, 185, 0],  # PACERS GOLD
+    [0, 45, 98],    # BLUE
+    [255, 185, 0],  # PACERS GOLD
+    [0, 45, 98],    # BLUE
+    [255, 185, 0],  # PACERS GOLD
+    [0, 45, 98],    # BLUE
+    [255, 185, 0],  # PACERS GOLD
+    [0, 45, 98]     # BLUE
+]
+
+VEE_LED_BOOT = [
+    [255, 0, 0],   # RED
+    [255, 30, 0],  # ORANGE
+    [255, 255, 0], # YELLOW
+    [0, 255, 0],   # GREEN
+    [0, 255, 140], # CYAN
+    [0, 140, 255], # LIGHTBLUE
+    [115, 0, 255],  # PURPLE
+    [220, 0, 255],  # MAGENTA
+    [148, 0, 211]   # VIOLET
+]
+
 # SCAN 
 SCAN_COUNT = 3
 

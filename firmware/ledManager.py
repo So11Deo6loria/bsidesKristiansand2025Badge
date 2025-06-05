@@ -10,7 +10,7 @@ class LEDManager:
         self.ledEnablePin = Pin(constants.LED_ENABLE_PIN, Pin.OUT)
         self.strand = NeoPixel(self.ledPin, constants.LED_COUNT)
         self.startupColor = startupColor
-        self.picoLED = Pin("LED", Pin.OUT)        
+        self.picoLED = Pin("LED", Pin.OUT)
 
         # LED Sections
         self.eyes = [1, 2]
@@ -62,7 +62,7 @@ class LEDManager:
             time.sleep(inter_char_pause - intra_char_pause)  # Already paused once at end of last symbol
 
         self.disable_led_voltage()
-        
+
     def fade_in_jacket(self, flagDict, duration=3):
         """
         Gradually fades in jacket LEDs. Each LED is tied to a specific flag by index.
@@ -180,3 +180,26 @@ class LEDManager:
         self.switch_to_eyes()
         self.wink(dwell)
         self.turn_off_leds()
+
+    def maker(self, maker):
+        """Runs maker's heartbeat sequence."""
+        if( maker == 'Caleb'):
+            maker_boot_config = constants.CALEB_LED_BOOT
+        elif( maker == 'Kyle'):
+            maker_boot_config = constants.KYLE_LED_BOOT
+        elif( maker == 'Vee'):
+            maker_boot_config = constants.VEE_LED_BOOT
+        else:
+            print("Unknown maker, defaulting to Caleb's boot sequence.")    
+            maker_boot_config = constants.CALEB_LED_BOOT
+        self.enable_led_voltage()
+
+        all_leds = self.eyes + self.jacket
+
+        for i in range(3):
+            for led in all_leds:
+                self.strand[led - 1] = self.apply_brightness(maker_boot_config[led-1])
+            self.strand.write()
+            time.sleep(0.5)
+            self.turn_off_leds()
+            time.sleep(0.25)
