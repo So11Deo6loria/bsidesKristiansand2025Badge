@@ -22,3 +22,6 @@ If you don't want to use the CLI you can also use Visual Studio Code with the Pi
 
 # Clue 6
 <img width="1225" alt="image" src="https://github.com/user-attachments/assets/b2dd47c7-f8d0-4961-940d-86888bdb1cae" />
+
+# Clue 7
+If you get the **Secured** flag you get every flag at once!  
