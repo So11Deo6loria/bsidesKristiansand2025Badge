@@ -17,3 +17,5 @@ rshell
 ls /pyboard/
 cat <FILENAME>
 ```
+# Clue 5
+If you don't want to use the CLI you can also use Visual Studio Code with the Pico extension. 
