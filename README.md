@@ -9,3 +9,11 @@ Once you're connected to the Wi-Fi access point, navigate to http://192.168.4.1/
 
 # Clue 3
 Inspect the webpages! 
+
+# Clue 5
+You can analyze the firmware in GitHub here or by the following commands after connecting via micro USB: 
+```bash
+rshell
+ls /pyboard/
+cat <FILENAME>
+```
