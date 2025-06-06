@@ -6,3 +6,6 @@ If you think morse code is outdated and want to get access to the Wi-Fi network 
 
 # Clue 2
 Once you're connected to the Wi-Fi access point, navigate to http://192.168.4.1/ in a browser. 
+
+# Clue 3
+Inspect the webpages! 
